@@ -8274,9 +8274,9 @@ def scrape_hostel_campus_js(driver, URLS):
 def parse_faculty_full_html(driver,URLS):
     try:
         driver.get(URLS["faculty"])
-    except selenium.common.exceptions.InvalidSessionIdException:
-        driver = webdriver.Chrome(options=options)
-        driver.get(URLS["faculty"])
+    except WebDriverException:
+        pass
+
     wait = WebDriverWait(driver, 15)
 
     college_info = {
